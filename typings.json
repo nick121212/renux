@@ -1,0 +1,9 @@
+{
+  "globalDevDependencies": {
+    "react-addons-perf": "registry:dt/react-addons-perf#15.1.0+20160619031933"
+  },
+  "globalDependencies": {
+    "react-router-dom": "registry:dt/react-router-dom#4.0.0+20170323201651",
+    "redux-saga": "registry:dt/redux-saga#0.9.1+20160703120921"
+  }
+}
