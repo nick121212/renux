@@ -1,5 +1,3 @@
-import "reflect-metadata";
-
 export { Renux, IRenux } from "./libs/renux";
 export { handle } from "./decorators/handle";
 export { action } from "./decorators/action";
@@ -10,4 +8,5 @@ export { BaseComponent } from "./libs/base";
 export { RenuxConnect } from "./libs/connect";
 export { proxy } from "./libs/proxy";
 export { Types } from "./config/types";
-export { ModelProxyReducer } from "./reducers/modelproxy";
+export { ModelProxyReducer, IModelProxyState, IModelProxyProps } from "./reducers/modelproxy";
+export { RenuxMeta, IMeta, ISagaInstance, ISagaOptions, IActionInstance, IReducerInstance, IHandle } from "./models/imeta";

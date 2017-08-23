@@ -56,8 +56,8 @@ export class Renux<T> extends BaseFactory<RenuxReducer> implements IRenux<T> {
      * 递归计算reducer，合并成一个
      * @param map reducer地图
      */
-    public calcReducers(map: any = this._reducerMaps): redux.Reducer<T> {
-        let rtns: any = {};
+    public calcReducers(map: any = this._reducerMaps): redux.Reducer<any> {
+        let rtns: redux.ReducersMapObject = {};
 
         for (let key in map) {
             if (map.hasOwnProperty(key)) {
@@ -71,7 +71,7 @@ export class Renux<T> extends BaseFactory<RenuxReducer> implements IRenux<T> {
             }
         }
 
-        return combineReducers(rtns);
+        return combineReducers(rtns as any);
     }
 
     /**

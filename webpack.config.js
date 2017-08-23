@@ -16,9 +16,11 @@ module.exports = {
         index: __DEV__ ? ['./src/demo'] : ['./src/index.tsx']
     },
     output: {
-        path: path.resolve('./dist'),
+        path: path.resolve('./out'),
         filename: '[name].js',
         publicPath: '/',
+        libraryTarget: "umd",
+        library: "rebux"
     },
     devtool: __DEV__ ? "cheap-module-eval-source-map" : "cheap-module-source-map",
     module: {
@@ -68,18 +70,18 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify(env),
-                "__DEV__": JSON.stringify(__DEV__),
-                "__TEST__": JSON.stringify(__TEST__),
-                "__PROD__": JSON.stringify(__PROD__),
-                "__STAG__": JSON.stringify(__STAG__)
+                "NODE_ENV": JSON.stringify(env),
+                "__DEV__": __DEV__,
+                "__TEST__": __TEST__,
+                "__PROD__": __PROD__,
+                "__STAG__": __STAG__
             },
         }),
         __DEV__ ? new HtmlWebpackPlugin({
             // favicon: 'static/favicon.png',
             template: 'src/index.html',
         }) : new CleanWebpackPlugin(
-            ['dist/**',],　 //匹配删除的文件
+            ['out/**',],　 //匹配删除的文件
             {
                 root: __dirname,       　　　　　　　　　　//根目录
                 verbose: true,        　　　　　　　　　　//开启在控制台输出信息
@@ -123,13 +125,15 @@ module.exports = {
         extensions: ['.js', '.ts', '.tsx']
     },
     externals: __DEV__ ? {} : {
-        'react': 'React',
-        'react-dom': 'ReactDOM',
-        'redux': 'redux',
+        'react': true,
+        'react-dom': true,
+        'redux': true,
         'redux-actions': true,
+        'redux-saga/effects': true,
         'redux-immutable': true,
         'redux-saga': true,
         'json-pointer': true,
+        'react-router-dom': true,
         'modelproxy': true,
         'reselect': true,
         'immutable': true,

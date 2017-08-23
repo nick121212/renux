@@ -10,8 +10,8 @@ export class BaseComponent<P, S> extends React.Component<P, S> {
         const thisProps: any = this.props || {};
         const thisState: any = this.state || {};
 
-        nextState = nextState || {};
-        nextProps = nextProps || {};
+        nextState = nextState || {} as any;
+        nextProps = nextProps || {} as any;
 
         if (Object.keys(thisProps).length !== Object.keys(nextProps).length ||
             Object.keys(thisState).length !== Object.keys(nextState).length) {

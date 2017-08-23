@@ -2,3 +2,9 @@ src
 node_modules
 .history
 .vscode
+postcss.config.js
+tsconfig.json
+tslint.json
+webpack.config.js
+.gitignore
+.npmignore

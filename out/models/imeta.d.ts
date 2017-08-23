@@ -1,6 +1,4 @@
-import * as Redux from "redux";
 import { ActionFunctionAny } from "redux-actions";
-
 export interface IHandle {
     action?: ActionFunctionAny<any>;
     target: any;
@@ -8,32 +6,26 @@ export interface IHandle {
     type: string;
     value: PropertyDescriptor;
 }
-
 export interface IReducerInstance {
     key: string;
     path: string;
 }
-
 export interface IActionInstance {
     key: string;
     target: any;
     type: string;
     value: PropertyDescriptor;
 }
-
 export interface ISagaOptions {
     actionType: string;
     takeFunc: Function;
 }
-
 export interface ISagaInstance {
     key: string;
     target: any;
     value: PropertyDescriptor;
-
     options: ISagaOptions;
 }
-
 export interface IMeta {
     key: string;
     path: string;
@@ -43,7 +35,5 @@ export interface IMeta {
     handles: Array<IHandle>;
     sagas: Array<ISagaInstance>;
 }
-
-export class RenuxMeta {
-
+export declare class RenuxMeta {
 }
